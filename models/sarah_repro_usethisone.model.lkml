@@ -2,7 +2,7 @@ connection: "thelook"
 
 # include all the views
 include: "/views/**/*.view"
-#include: "*.dashboards"
+include: "*.dashboard"
 
 datagroup: sarah_repro_usethisone_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
