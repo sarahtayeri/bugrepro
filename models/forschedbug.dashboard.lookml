@@ -4,7 +4,7 @@
   elements:
   - title: w
     name: w
-    model: sarah_repro_usethisone
+    model: sarah_repro_usethisone2
     explore: order_items
     type: table
     fields: [order_items.id, order_items.order_id, order_items.count]
