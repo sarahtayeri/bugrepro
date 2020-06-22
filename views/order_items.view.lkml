@@ -18,6 +18,7 @@ view: order_items {
     type: number
     # hidden: yes
     sql: ${TABLE}.order_id ;;
+    description: "here's Sarah's description"
   }
 
   dimension_group: returned {
