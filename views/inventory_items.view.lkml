@@ -29,9 +29,20 @@ view: inventory_items {
 
   dimension: product_id {
     type: number
-    # hidden: yes
     sql: ${TABLE}.product_id ;;
   }
+
+  dimension: in_query_flag {
+    type: string
+    sql: {% if inventory_items.product_id._in_query %} "it's in the query"  {% else %} "it's not in the query" {% endif %};;
+  }
+
+  dimension: is_filtered_flag {
+    type: string
+    sql: {% if inventory_items.product_id._is_filtered %} "it's filtered"  {% else %} "it's not filtered" {% endif %};;
+  }
+
+
 
   dimension_group: sold {
     type: time

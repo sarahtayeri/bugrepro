@@ -12,6 +12,7 @@ view: events {
   dimension: sljsalk {
     type: string
     sql: "testing" ;;
+    #testy
   }
 
   dimension_group: created {
