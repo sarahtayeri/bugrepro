@@ -8,6 +8,11 @@ view: events {
     sql: ${TABLE}.id ;;
   }
 
+  filter: buggy {
+    #suggest_explore: order_items
+    #suggest_dimension: inventory_item_id
+  }
+
 
   dimension: sljsalk {
     type: string
