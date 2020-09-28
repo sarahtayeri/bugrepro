@@ -5,13 +5,15 @@ include: "/views/**/*.view"
 include: "*.dashboard"
 
 datagroup: sarah_repro_usethisone_default_datagroup {
-  # sql_trigger: SELECT MAX(id) FROM etl_log;;
+  sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
 }
 
 persist_with: sarah_repro_usethisone_default_datagroup
 
 explore: connection_reg_r3 {}
+
+explore: dt_triggered {}
 
 explore: events {
   join: users {
