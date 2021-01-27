@@ -22,6 +22,11 @@ view: orders {
     sql: ${TABLE}.created_at ;;
   }
 
+  dimension: created_year_string {
+    type: string
+    sql: ${created_year} ;;
+  }
+
   dimension_group: created_2 {
     type: time
     timeframes: [
@@ -96,6 +101,8 @@ view: orders {
 
   measure: count {
     type: count
-    drill_fields: [id, users.first_name, users.last_name, users.id, order_items.count]
+    drill_fields: [id, users.last_name, users.id, users.first_name, order_items.count, created_date, created_time, created_month, created_quarter, created_year, created_week, status, user_id, id, users.age, users.state, users.country, users.city, users.long_field]
   }
+
+
 }

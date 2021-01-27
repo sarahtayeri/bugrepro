@@ -18,6 +18,10 @@ view: users {
     sql: ${TABLE}.city ;;
   }
 
+  dimension: long_field {
+    sql: concat(${email},${created_date},${created_time},${first_name},${last_name}) ;;
+  }
+
   dimension: country {
     type: string
     map_layer_name: countries

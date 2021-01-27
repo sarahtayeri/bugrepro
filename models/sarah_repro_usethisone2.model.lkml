@@ -1,5 +1,8 @@
 connection: "thelook"
 
+
+#TEST FOR NEW BRANCH
+
 # include all the views
 include: "/views/**/*.view"
 include: "*.dashboard"
@@ -77,6 +80,43 @@ explore: user_data {
   }
 }
 
-explore: users {}
+explore: users {
+  access_filter: {
+    field: first_name
+    user_attribute: mark_bug_repro
+  }
+  # access_filter: {
+  #   field: id
+  #   user_attribute: mark_bug_repro_number
+  # }
+
+  # aggregate_table: test {}
+
+
+    aggregate_table: rollup__gender__id {
+      query: {
+        dimensions: [
+          # "users.first_name" is automatically filtered on in an access_filter.
+          # Uncomment to allow all possible filters to work with aggregate awareness.
+          # users.first_name,
+          gender,
+          id
+        ]
+        filters: [
+          # "users.first_name" is automatically filtered on in an access_filter in this query.
+          # Remove this filter to allow all possible filters to work with aggregate awareness.
+          users.first_name: "%, NULL"
+        ]
+        timezone: "America/Los_Angeles"
+      }
+
+      materialization: {
+        datagroup_trigger: sarah_repro_usethisone_default_datagroup
+      }
+  }
+
+
+
+}
 
 explore: xin_test_for_bug2 {}
